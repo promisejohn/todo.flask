@@ -6,13 +6,16 @@
 #
 
 from flask import Flask, jsonify, abort, make_response, request, url_for
+from flask.ext.httpauth import HTTPBasicAuth
 
 app = Flask(__name__)
+
+auth = HTTPBasicAuth()
 
 tasks = [
     {
         'id': 1,
-        'title': u'Buy groceries',
+        'title': u'学习 python',
         'description': u'Milk, Cheese, Pizza, Fruit, Tylenol', 
         'done': False
     },
@@ -23,6 +26,16 @@ tasks = [
         'done': False
     }
 ]
+
+@auth.get_password
+def getPassword(username):
+	if username == 'hello':
+		return 'python'
+	return None
+
+@auth.error_handler
+def unauthorized():
+	return make_response(jsonify({'error': 'Unauthorized access'}), 401)
 
 @app.route("/",methods=["GET"])
 def index():
@@ -43,6 +56,7 @@ def makePublicTask(task):
 	return new_task
 
 @app.route("/todo/api/v1.0/tasks",methods=["GET"])
+@auth.login_required
 def getTasks():
 	return jsonify({'tasks':map(makePublicTask,tasks)})
 

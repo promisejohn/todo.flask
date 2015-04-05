@@ -12,15 +12,20 @@ PUT	    | http://[hostname]/todo/api/v1.0/tasks/[task_id]	| 更新一个已存�
 DELETE	| http://[hostname]/todo/api/v1.0/tasks/[task_id]	| 删除一个任务
 
 
-$ flask/bin/pip install flask
-$ flask/bin/pip install flask-login
-$ flask/bin/pip install flask-openid
-$ flask/bin/pip install flask-mail
-$ flask/bin/pip install flask-sqlalchemy
-$ flask/bin/pip install sqlalchemy-migrate
-$ flask/bin/pip install flask-whooshalchemy
-$ flask/bin/pip install flask-wtf
-$ flask/bin/pip install flask-babel
-$ flask/bin/pip install guess_language
-$ flask/bin/pip install flipflop
-$ flask/bin/pip install coverage
+可能用到的类库：
+flask
+flask-login
+flask-openid
+flask-mail
+flask-sqlalchemy
+sqlalchemy-migrate
+flask-whooshalchemy
+flask-wtf
+flask-babel
+guess_language
+flipflop
+coverage
+
+todo:
+Add database support
+Add Multi-User support
