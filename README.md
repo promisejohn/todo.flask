@@ -14,6 +14,7 @@ DELETE	| http://[hostname]/todo/api/v1.0/tasks/[task_id]	| 删除一个任务
 
 可能用到的类库：
 flask
+flask-restful
 flask-login
 flask-openid
 flask-mail
@@ -29,3 +30,4 @@ coverage
 todo:
 Add database support
 Add Multi-User support
+Add tox build support
